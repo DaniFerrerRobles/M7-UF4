@@ -2,18 +2,18 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\TarjetaController;
+use App\Http\Controllers\Api\MascotaController;
 use App\Http\Controllers\AuthController;
 use App\Http\Middleware\IsUserAuth;
 use App\Http\Middleware\Isadmin;
 
 // Rutas públicas
-Route::post('register', [AuthController::class, 'register']);
-Route::post('login', [AuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
 
-// Rutas públicas de tarjetas
-Route::get('/tarjetas', [TarjetaController::class, 'index']);
-Route::get('/tarjetas/{id}', [TarjetaController::class, 'show']);
+// Rutas públicas de mascotas
+Route::get('/mascotas', [MascotaController::class, 'index']);
+Route::get('/mascotas/{id}', [MascotaController::class, 'show']);
 
 // Rutas protegidas para usuarios autenticados
 Route::middleware([IsUserAuth::class])->group(function () {
@@ -21,10 +21,10 @@ Route::middleware([IsUserAuth::class])->group(function () {
     Route::get('me', [AuthController::class, 'getUser']);
 
     // Crear, editar y eliminar tarjetas (requiere autenticación)
-    Route::post('tarjetas', [TarjetaController::class, 'store']);
-    Route::put('tarjetas/{id}', [TarjetaController::class, 'update']);
-    Route::patch('tarjetas/{id}', [TarjetaController::class, 'updatePartial']);
-    Route::delete('tarjetas/{id}', [TarjetaController::class, 'destroy']);
+    Route::post('mascotas', [MascotaController::class, 'store']);
+    Route::put('mascotas/{id}', [MascotaController::class, 'update']);
+    Route::patch('mascotas/{id}', [MascotaController::class, 'updatePartial']);
+    Route::delete('mascotas/{id}', [MascotaController::class, 'destroy']);
 });
 
 // Rutas para administrador
