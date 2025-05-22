@@ -3,9 +3,14 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\MascotaController;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Api\UserController;
 use App\Http\Middleware\IsUserAuth;
 use App\Http\Middleware\Isadmin;
+use App\Http\Controllers\AuthController;
+
+
+
+
 
 // Rutas públicas
 Route::post('/register', [AuthController::class, 'register']);
@@ -29,8 +34,8 @@ Route::middleware([IsUserAuth::class])->group(function () {
 
 // Rutas para administrador
 Route::middleware([Isadmin::class])->group(function () {
-    Route::get('users', [AuthController::class, 'getAdmin']);
-    Route::get('users/{id}', [AuthController::class, 'getUserById']);
-    Route::put('users/{id}', [AuthController::class, 'updateUser']);
-    Route::delete('users/{id}', [AuthController::class, 'deleteUser']);
+    Route::get('users', [UserController::class, 'index']);
+    Route::get('users/{id}', [UserController::class, 'show']);
+    Route::put('users/{id}', [UserContoller::class, 'update']);
+    Route::delete('users/{id}', [UserController::class, 'destroy']);
 });
