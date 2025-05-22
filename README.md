@@ -60,3 +60,41 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+
+
+
+
+
+Buenas! Soy Dani Ferrer, estudiante de DAW en FP LLEFIA, he hecho el intento de crear una api con Laravel 11 en la que permito registrar usuarios gracias a post con postman, también he hecho el login con token y logout de los usuarios. También he hecho los Middleware, que sirve para proteger al administrador y al usuario (para que nadie que no esté autorizado pueda hacer cosas raras jeje). También hemos hecho migraciones a la base de datos, las migraciones sirven para actualizar la base de datos desde Laravel11 (Codespace). A continuación explicaré como va el tema de los endpoints lo mejor posible :)  :
+Lo que yo he conseguido ha sido:
+
+-ENDPOINT PARA REGISTRAR USUARIOS (url del servidor + /api/register) pero... IMPORTANTE!en el Postman hemos de decirle que el metodo sea POST-BODY-RAW-JSON.... y montar la estructura json para registrar un usuario!
+
+-ENDPOINT PARA logear USUARIOS (url del servidor + /api/login) pero... IMPORTANTE!en el Postman hemos de decirle que el metodo sea POST-BODY-RAW-JSON.... y montar la estructura json para logear un usuario!
+
+-ENDPOINT PARA logout USUARIOS (url del servidor + /api/logout) pero... IMPORTANTE!en el Postman hemos de decirle que el metodo sea POST.... y cerraremos la sesión del actual usuario!
+
+-ENDPOINT PARA VER TODOS LOS USUARIOS (url del servidor + /api/users) pero... IMPORTANTE!en el Postman hemos de decirle que el metodo sea GET.... y veremos todos los usuarios que hay!
+
+-ENDPOINT PARA VER SOLO UN USUARIO (url del servidor + /api/users/id) pero... IMPORTANTE!en el Postman hemos de decirle que el metodo sea GET.... y veremos todos el usuario con el id que hemos puesto!
+
+-ENDPOINT PARA ELIMINAR UN USUARIO (url del servidor + /api/users/id) pero... IMPORTANTE!en el Postman hemos de decirle que el metodo sea DELETE.... y eliminaremos al usuario!
+
+Eso si... gracias a los Middlewere podemos controlar quien puede hacer segun que cosas, por ejemplo , si un usuario se logea correctamente si es admin podrá ejecutar unos endpoints y si es user otros.
+
+Los controladores el "corazón" del programa y... por que? Facil! Los controladores son los encargados de que funcionen los endpoints (junto con las rutas), ya que ahí estará la lógica de programación.
+
+Pero...que es JWT?
+Muy facil! Esto son los tokens... un token no es más que una clave codificada que valida quien es el usuario y lo que puede hacer.
+
+Administrador: {
+  "email": "a@gmail.com",
+  "password": "12345678"
+}
+
+
+
+
+
